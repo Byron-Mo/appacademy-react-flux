@@ -1,0 +1,10 @@
+{
+  "globals": {
+    "waitsForPromise": true
+  },
+  "env": {
+    "jasmine": true
+  },
+  "plugins": ["react"],
+  "ecmaFeatures": {"jsx": true}
+}
