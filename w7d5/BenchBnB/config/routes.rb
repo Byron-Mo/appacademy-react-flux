@@ -55,7 +55,7 @@ Rails.application.routes.draw do
   #   end
   root to: "static_pages#root"
 
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     resources :benches, only: [:index, :create]
   end
 end

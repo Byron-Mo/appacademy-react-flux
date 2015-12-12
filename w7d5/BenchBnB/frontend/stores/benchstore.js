@@ -21,6 +21,5 @@ BenchStore.__onDispatch = function(payload) {
   }
 }
 
-window.BenchStore = BenchStore;
 
 module.exports = BenchStore;

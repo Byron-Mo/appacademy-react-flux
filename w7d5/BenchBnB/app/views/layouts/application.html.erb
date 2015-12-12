@@ -7,8 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2x6RsK30-A-bVJ3mtQfBMm006Jg-NLAA&callback=initMap">
+  </script>
+  <%= yield %>
 
 </body>
 </html>
