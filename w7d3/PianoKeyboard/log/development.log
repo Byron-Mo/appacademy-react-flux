@@ -1098,3 +1098,24 @@ Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323
 
 
 Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2015-12-09 23:20:38 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2015-12-12 20:59:07 -0800
+Processing by StaticPagesController#root as HTML
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 152ms (Views: 145.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-1528a01c01095273ce4ffae76eb1fa1488822d45cd20f314d9b3f0f41361a8ab.css?body=1" for 127.0.0.1 at 2015-12-12 20:59:07 -0800
+
+
+Started GET "/assets/bundle.self-9269c5ebfd43e226a02fe4833ce64a0983b6ef6c8363e54768068509199e8389.js?body=1" for 127.0.0.1 at 2015-12-12 20:59:07 -0800
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-12-12 20:59:07 -0800
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2015-12-12 20:59:07 -0800
+
+
+Started GET "/assets/bundle.js.map" for 127.0.0.1 at 2015-12-12 21:00:21 -0800
