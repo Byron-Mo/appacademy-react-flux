@@ -16,7 +16,7 @@ var Index = React.createClass({
   },
 
   componentWillUnmount: function() {
-    BenchStore.removeListener(this.listener);
+    this.listener.remove();
   },
 
   render: function() {

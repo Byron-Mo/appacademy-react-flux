@@ -7,12 +7,16 @@ var React = require('react'),
     Router = require('react-router').Router,
     Route = require('react-router').Route,
     App = require('./components/App'),
-    IndexRoute = require('react-router').IndexRoute;
+    IndexRoute = require('react-router').IndexRoute,
+    BenchForm = require('./components/BenchForm'),
+    ShowMarker = require('./components/ShowMarker');
 
 var BenchRouter = (
   <Router>
-    <Route path='/' component={App}>
+    <Route path="/" component={App}>
       <IndexRoute component={Search}/>
+      <Route path="benches/new" component={BenchForm} />
+      <Route
     </Route>
   </Router>
 )

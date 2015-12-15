@@ -1,7 +1,9 @@
 var React = require('react'),
     ReactDOM = require('react-dom'),
     BenchStore = require('../stores/benchstore'),
-    ApiUtil = require('../util/apiutil');
+    ApiUtil = require('../util/apiutil'),
+    FilterActions = require('../actions/filter_actions'),
+    FilterParamsStore = require('../stores/FilterParamsStore');
 
 var Map = React.createClass({
   getInitialState: function() {
@@ -21,11 +23,11 @@ var Map = React.createClass({
 
     // idle event
     this.listenForIdle();
+    this.handleClick();
   },
 
   componentWillUnmount: function() {
-    BenchStore.removeListener(this.listener);
-    this.removeMarkers();
+    this.listener.remove();
   },
 
   listenForIdle: function() {
@@ -39,10 +41,19 @@ var Map = React.createClass({
       var sLng = southWest.lng();
       var nLat = northEast.lat();
       var nLng = northEast.lng();
-      this.bounds = {southWest: {sLat, sLng}, northEast: {nLat, nLng}};
-      // debugger
 
-      ApiUtil.fetchBenches({southWest: {sLat, sLng}, northEast: {nLat, nLng}});
+      this.bounds = {
+        southWest: {sLat, sLng},
+        northEast: {nLat, nLng}
+      };
+
+      FilterActions.addBounds(this.bounds)
+
+      console.log(FilterParamsStore.all())
+      min = FilterParamsStore.all().min;
+      max = FilterParamsStore.all().max;
+       
+      ApiUtil.fetchBenches({southWest: {sLat, sLng}, northEast: {nLat, nLng}}, min, max);
     })
   },
 
@@ -62,18 +73,33 @@ var Map = React.createClass({
     }
   },
 
-  removeMarkers: function() {
-    var markers = this.state.markers;
-    for (var i = 0; i < markers.length; i++) {
-      marker[i].setMap(null);
-    }
-    this.setState({markers: []})
+  // removeMarkers: function() {
+  //   var markers = this.state.markers;
+  //   for (var i = 0; i < markers.length; i++) {
+  //     marker[i].setMap(null);
+  //   }
+  //   this.setState({markers: []})
+  // },
+
+  handleClick: function() {
+    var that = this;
+
+    google.maps.event.addListener(this.map, "click", function(event) {
+      var latitude = event.latLng.lat();
+      var longitude = event.latLng.lng();
+
+      var coords = {
+        lat: latitude,
+        lng: longitude
+      };
+
+      that.props.clickMapHandler(coords)
+    });
   },
 
   render: function() {
-
     return(
-      <div className="map" ref="map"></div>
+      <div className="map" ref="map" ></div>
     )
   }
 });

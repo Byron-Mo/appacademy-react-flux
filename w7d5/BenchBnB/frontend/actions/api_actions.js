@@ -7,7 +7,15 @@ ApiActions = {
       actionType: BenchConstants.BENCHES_RECEIVED,
       benches: benches
     });
+  },
+
+  createBench: function(bench) {
+    AppDispatcher.dispatch({
+      actionType: BenchConstants.CREATE_BENCH,
+      bench: bench
+    })
   }
 };
+
 
 module.exports = ApiActions;

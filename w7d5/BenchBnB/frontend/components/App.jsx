@@ -1,4 +1,5 @@
-var React = require('react');
+var React = require('react'),
+    BenchForm = require('./BenchForm');
 
 var App = React.createClass({
   render: function() {
