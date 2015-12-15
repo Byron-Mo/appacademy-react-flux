@@ -16,7 +16,12 @@ BenchStore.resetBenches = function(benches) {
 BenchStore.createBench = function(bench) {
   _benches.push(bench);
   BenchStore.__emitChange();
-}
+},
+
+BenchStore.resetBench = function(bench) {
+  _benches.push(bench);
+  BenchStore.__emitChange()
+},
 
 BenchStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
@@ -25,6 +30,9 @@ BenchStore.__onDispatch = function(payload) {
       break;
     case BenchConstants.CREATE_BENCH:
       BenchStore.createBench(payload.bench);
+      break;
+    case BenchConstants.RECEIVE_BENCH:
+      BenchStore.fetchBench(payload.bench);
       break;
   }
 }

@@ -20,7 +20,6 @@ var Map = React.createClass({
 
     // add listener to add markers
     this.listener = BenchStore.addListener(this.addMarkers);
-
     // idle event
     this.listenForIdle();
     this.handleClick();
@@ -49,11 +48,11 @@ var Map = React.createClass({
 
       FilterActions.addBounds(this.bounds)
 
-      console.log(FilterParamsStore.all())
-      min = FilterParamsStore.all().min;
-      max = FilterParamsStore.all().max;
-       
-      ApiUtil.fetchBenches({southWest: {sLat, sLng}, northEast: {nLat, nLng}}, min, max);
+      // console.log(FilterParamsStore.all())
+      // min = FilterParamsStore.all().min;
+      // max = FilterParamsStore.all().max;
+      //
+      // ApiUtil.fetchBenches({southWest: {sLat, sLng}, northEast: {nLat, nLng}}, min, max);
     })
   },
 
@@ -63,14 +62,16 @@ var Map = React.createClass({
 
   addMarkers: function(){
     this.setState({markers: BenchStore.all()})
+    this.markers = []
     var markers = this.state.markers;
     for (var i = 0; i < markers.length; i++) {
-      new google.maps.Marker({
+      this.markers.push(new google.maps.Marker({
         position: {lat: markers[i].lat, lng: markers[i].lng},
         map: this.map,
         title: markers[i].description
-      });
+      }));
     }
+
   },
 
   // removeMarkers: function() {

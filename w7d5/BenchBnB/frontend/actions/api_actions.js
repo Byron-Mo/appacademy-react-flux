@@ -14,6 +14,13 @@ ApiActions = {
       actionType: BenchConstants.CREATE_BENCH,
       bench: bench
     })
+  },
+
+  receiveBench: function(bench) {
+    AppDispatcher.dispatch({
+      actionType: BenchConstants.RECEIVE_BENCH,
+      bench: bench
+    })
   }
 };
 

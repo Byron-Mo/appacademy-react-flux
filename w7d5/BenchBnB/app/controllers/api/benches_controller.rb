@@ -9,6 +9,10 @@
     render :show
   end
 
+  def show
+    @bench = Bench.find(params[:id])
+  end
+
   private
   def bench_params
     params.require(:bench).permit(:description, :lat, :lng, :seating)

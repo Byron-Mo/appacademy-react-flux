@@ -11,6 +11,12 @@ ApiUtil = {
     $.post('/api/benches', {bench: data}, function(bench) {
       ApiActions.createBench(bench);
     })
+  },
+
+  fetchBench: function(id) {
+    $.get('/api/benches/' + id, {}, function(bench) {
+      ApiActions.receiveBench(bench);
+    })
   }
 }
 

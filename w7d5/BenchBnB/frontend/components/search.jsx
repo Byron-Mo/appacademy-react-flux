@@ -22,11 +22,12 @@ var Search = React.createClass({
       min: param.min,
       max: param.max
     });
+
+    ApiUtil.fetchBenches(this.state.bounds, this.state.min, this.state.max);
   },
 
   componentDidMount: function() {
     this.listener = FilterParamsStore.addListener(this.updateState);
-    ApiUtil.fetchBenches(this.state.bounds, this.state.min, this.state.max);
   },
 
   componentWillUnmount: function() {
