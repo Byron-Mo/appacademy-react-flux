@@ -1,7 +1,7 @@
 class Api::PokemonController < ApplicationController
   def create
     @pokemon = Pokemon.new(pokemon_params)
-    byebug
+
     if @pokemon.save
       render :show
     else

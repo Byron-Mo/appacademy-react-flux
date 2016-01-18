@@ -60,3 +60,4 @@ development:
 test:
   <<: *default
   database: pokedex_test
+

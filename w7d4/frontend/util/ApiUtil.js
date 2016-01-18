@@ -1,7 +1,7 @@
 var ApiActions = require('../actions/ApiActions');
 
 var ApiUtil = {
-  fetch: function(){  
+  fetch: function(){
     $.get('/api/pokemon', {}, function(pokemons){
       ApiActions.receiveAllPokemons(pokemons);
     })
